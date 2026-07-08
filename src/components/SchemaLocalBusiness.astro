@@ -1,0 +1,44 @@
+---
+import { SITE_CONFIG } from '../data/config';
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": SITE_CONFIG.name,
+  "legalName": SITE_CONFIG.legalName,
+  "image": new URL('/images/og-image.jpg', Astro.site).toString(),
+  "@id": new URL('#localbusiness', Astro.site).toString(),
+  "url": Astro.site?.toString() || SITE_CONFIG.siteUrl,
+  "telephone": SITE_CONFIG.phoneFormatted,
+  "email": SITE_CONFIG.email,
+  "priceRange": "$$",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": SITE_CONFIG.street,
+    "addressLocality": SITE_CONFIG.city,
+    "addressRegion": SITE_CONFIG.state,
+    "postalCode": SITE_CONFIG.postalCode,
+    "addressCountry": "BR"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": -22.5186,
+    "longitude": -44.1039
+  },
+  "openingHoursSpecification": {
+    "@type": "OpeningHoursSpecification",
+    "dayOfWeek": [
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday",
+      "Saturday"
+    ],
+    "opens": "07:00",
+    "closes": "18:00"
+  }
+};
+---
+
+<script type="application/ld+json" is:inline set:html={JSON.stringify(schema)} />

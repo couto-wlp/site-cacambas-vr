@@ -1,0 +1,18 @@
+export const SITE_CONFIG = {
+  siteUrl: 'https://cacambasvoltaredonda.com.br',
+  name: 'Caçambas VR',
+  legalName: 'Caçambas VR LTDA',
+  phone: '(21) 97959-8759',
+  phoneFormatted: '+5521979598759',
+  whatsapp: '(21) 97959-8759',
+  whatsappFormatted: '+5521979598759',
+  whatsappUrl: 'https://wa.me/5521979598759',
+  email: 'contato@cacambasvr.com.br',
+  address: 'Rua José Fulgêncio Neto, 102 - Aterrado, Volta Redonda - RJ, 27213-340',
+  postalCode: '27213-340',
+  street: 'Rua José Fulgêncio Neto, 102',
+  city: 'Volta Redonda',
+  state: 'RJ',
+  licenseSMMA: 'L.O. nº 0387/24',
+  registerATT: 'ATT-VR nº 092/24',
+};

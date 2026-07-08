@@ -1,0 +1,154 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { SITE_CONFIG } from '../data/config';
+---
+
+<Layout title={`Contato e Orçamentos | ${SITE_CONFIG.name}`} description={`Entre em contato com a ${SITE_CONFIG.name}. Atendimento telefônico, WhatsApp e formulário de orçamento rápido para Volta Redonda e bairros.`}>
+  <!-- Page Header -->
+  <section class="bg-secondary text-white !py-12 md:!py-16">
+    <div>
+      <div class="max-w-4xl mx-auto text-center">
+        <span class="inline-block bg-primary/20 border border-primary/30 text-primary font-bold px-4 py-1.5 rounded-full text-xs uppercase tracking-wider mb-6">
+          Atendimento Local Rápido
+        </span>
+        <h1 class="text-3xl sm:text-4xl md:text-5xl font-black text-white tracking-tighter leading-tight mb-6">
+          Fale com a {SITE_CONFIG.name}
+        </h1>
+        <p class="text-base md:text-xl text-green-100 leading-relaxed max-w-3xl mx-auto">
+          Estamos prontos para atender Volta Redonda com agilidade. Preencha o formulário para receber um contato rápido ou fale diretamente conosco via WhatsApp.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Grid -->
+  <section class="bg-white">
+    <div>
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+        <!-- Direct Contact Channels & NAP -->
+        <div class="space-y-8">
+          <div class="bg-slate-50 border border-slate-200/60 p-10 rounded-2xl shadow-sm space-y-8 hover:shadow-md transition-all duration-300">
+            <h2 class="text-2xl font-bold text-gray-900 tracking-tight">Informações de Contato (NAP)</h2>
+            
+            <div class="space-y-6">
+              <!-- Email -->
+              <div class="flex items-start gap-4 p-6 bg-white border border-slate-200 rounded-xl hover:scale-[1.02] transition-all">
+                <div class="bg-primary/20 w-12 h-12 rounded-xl flex items-center justify-center text-xl text-secondary flex-shrink-0">
+                  ✉️
+                </div>
+                <div>
+                  <p class="text-xs text-gray-500 font-bold uppercase tracking-wider">E-mail Comercial</p>
+                  <a href={`mailto:${SITE_CONFIG.email}`} class="text-base font-bold text-gray-900 hover:text-secondary transition-all">{SITE_CONFIG.email}</a>
+                  <p class="text-xs text-gray-500 mt-1">Entre em contato via e-mail para propostas e parcerias.</p>
+                </div>
+              </div>
+
+              <!-- Address/Location -->
+              <div class="flex items-start gap-4 p-6 bg-white border border-slate-200 rounded-xl hover:scale-[1.02] transition-all">
+                <div class="bg-primary/20 w-12 h-12 rounded-xl flex items-center justify-center text-xl text-secondary flex-shrink-0">
+                  📍
+                </div>
+                <div>
+                  <p class="text-xs text-gray-500 font-bold uppercase tracking-wider">Endereço Principal (Área de Atendimento)</p>
+                  <p class="text-base font-bold text-gray-900">{SITE_CONFIG.address}</p>
+                  <p class="text-xs text-gray-400 mt-1">Atendimento em toda a área urbana de Volta Redonda.</p>
+                </div>
+              </div>
+
+              <!-- Phone/WhatsApp -->
+              <div class="flex items-start gap-4 p-6 bg-white border border-slate-200 rounded-xl hover:scale-[1.02] transition-all">
+                <div class="bg-primary/20 w-12 h-12 rounded-xl flex items-center justify-center text-xl text-secondary flex-shrink-0">
+                  📞
+                </div>
+                <div>
+                  <p class="text-xs text-gray-500 font-bold uppercase tracking-wider">Telefone & WhatsApp</p>
+                  <p class="text-base font-bold text-gray-900">{SITE_CONFIG.whatsapp} / {SITE_CONFIG.phone}</p>
+                  <p class="text-sm text-gray-600">Disponível em horário de atendimento comercial.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- WhatsApp Direct Click Button -->
+            <a href={SITE_CONFIG.whatsappUrl} target="_blank" rel="noopener noreferrer" class="block bg-green-600 hover:bg-green-700 text-white font-bold p-8 rounded-xl transition-all duration-200 shadow-md hover:shadow-lg hover:scale-105 active:scale-95 text-center flex flex-col items-center justify-center gap-3">
+              <span class="text-3xl">💬</span>
+              <div>
+                <p class="text-xl">Chamar no WhatsApp</p>
+                <p class="text-green-100 text-xs font-normal mt-1">Clique para iniciar a conversa imediatamente</p>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <!-- Contact Form -->
+        <div class="bg-slate-50 border border-slate-200/60 p-10 rounded-2xl shadow-sm hover:shadow-md transition-all duration-300">
+          <h2 class="text-2xl font-bold text-gray-900 mb-6 tracking-tight">Solicitar Orçamento</h2>
+          
+          <form id="contact-form" class="space-y-6">
+            <div>
+              <label for="name" class="block text-xs font-bold uppercase tracking-wider text-gray-600 mb-2">Seu Nome</label>
+              <input type="text" id="name" required class="w-full bg-white border border-slate-300 rounded-xl p-6 text-gray-900 focus:outline-none focus:ring-2 focus:ring-secondary/50 placeholder:text-gray-400" placeholder="Digite seu nome completo" />
+            </div>
+
+            <div>
+              <label for="phone" class="block text-xs font-bold uppercase tracking-wider text-gray-600 mb-2">WhatsApp / Telefone</label>
+              <input type="tel" id="phone" required class="w-full bg-white border border-slate-300 rounded-xl p-6 text-gray-900 focus:outline-none focus:ring-2 focus:ring-secondary/50 placeholder:text-gray-400" placeholder={SITE_CONFIG.whatsapp} />
+            </div>
+
+            <div>
+              <label for="bairro" class="block text-xs font-bold uppercase tracking-wider text-gray-600 mb-2">Bairro de Entrega da Caçamba</label>
+              <input type="text" id="bairro" required class="w-full bg-white border border-slate-300 rounded-xl p-6 text-gray-900 focus:outline-none focus:ring-2 focus:ring-secondary/50 placeholder:text-gray-400" placeholder="Ex: Laranjal, Aterrado, Vila Santa Cecília, Retiro, Centro" />
+            </div>
+
+            <div>
+              <label for="message" class="block text-xs font-bold uppercase tracking-wider text-gray-600 mb-2">Detalhes do Pedido ou Dúvida</label>
+              <textarea id="message" rows="4" class="w-full bg-white border border-slate-300 rounded-xl p-6 text-gray-900 focus:outline-none focus:ring-2 focus:ring-secondary/50 placeholder:text-gray-400" placeholder="Descreva os materiais a serem descartados ou dúvidas sobre o aluguel"></textarea>
+            </div>
+
+            <button type="submit" class="w-full bg-secondary hover:bg-secondary/95 text-white font-bold p-6 rounded-xl transition-all duration-200 hover:scale-105 active:scale-95 shadow-md shadow-secondary/10 hover:shadow-lg text-center uppercase tracking-wider text-sm">
+              Enviar Solicitação
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Google Maps Section -->
+  <section class="bg-slate-50 border-t border-slate-200/60 !py-16 md:!py-24">
+    <div>
+      <div class="max-w-4xl mx-auto space-y-8">
+        <div class="text-center max-w-3xl mx-auto">
+          <span class="text-xs font-bold uppercase tracking-wider text-secondary bg-secondary/5 px-3 py-1 rounded inline-block mb-2">Localização</span>
+          <h2 class="text-2xl md:text-4xl font-black text-gray-900 tracking-tighter uppercase mb-4">
+            Nossa Localização
+          </h2>
+          <p class="text-gray-600 text-sm md:text-base leading-relaxed">
+            {SITE_CONFIG.address}
+          </p>
+        </div>
+        
+        <div class="w-full h-[300px] md:h-[380px] rounded-3xl overflow-hidden shadow-xl border border-slate-200/60 relative">
+          <iframe 
+            class="w-full h-full border-0" 
+            src={`https://maps.google.com/maps?q=${encodeURIComponent(SITE_CONFIG.address)}&t=&z=16&ie=UTF8&iwloc=&output=embed`} 
+            allowfullscreen="" 
+            loading="lazy" 
+            referrerpolicy="no-referrer-when-downgrade"
+            title="Localização de Caçambas VR no Google Maps"
+          ></iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    const form = document.getElementById('contact-form') as HTMLFormElement | null;
+    if (form) {
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        alert('Solicitação enviada com sucesso! Entraremos em contato em breve para fechar o orçamento.');
+        form.reset();
+      });
+    }
+  </script>
+</Layout>

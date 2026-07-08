@@ -1,0 +1,183 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { SITE_CONFIG } from '../data/config';
+---
+
+<Layout title={`Sobre Nós | ${SITE_CONFIG.name}`} description={`Conheça a história, missão, valores e o compromisso com a segurança e descarte ecológico da ${SITE_CONFIG.name} em Volta Redonda.`}>
+  <!-- Hero Header Section -->
+  <section class="bg-secondary text-white py-16 md:py-24 relative overflow-hidden text-center">
+    <div class="container mx-auto px-6 md:px-12 relative z-10">
+      <div class="max-w-3xl mx-auto space-y-6">
+        <span class="inline-block bg-primary/20 border border-primary/30 text-primary font-bold px-4 py-1.5 rounded-full text-xs uppercase tracking-wider">
+          Excelência em Aluguel de Caçambas
+        </span>
+        <h1 class="text-4xl sm:text-5xl md:text-6xl font-black text-white tracking-tighter leading-tight">
+          Quem Somos
+        </h1>
+        <p class="text-sm md:text-lg text-green-100 max-w-2xl mx-auto font-medium leading-relaxed">
+          Oferecemos caçambas para retirada de entulhos de obras de pequeno, médio e grande porte.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Content & Specifications Grid -->
+  <section class="bg-white border-b border-slate-100 !py-16 md:!py-24">
+    <div class="container mx-auto px-6 md:px-12">
+      <div class="grid grid-cols-1 lg:grid-cols-5 gap-16 items-start">
+        
+        <!-- Left Column: Main Narrative Content (60% width) -->
+        <div class="lg:col-span-3 space-y-12">
+          
+          <!-- Section 1 -->
+          <div class="space-y-6">
+            <h2 class="border-l-4 border-primary pl-4 text-2xl font-black text-slate-900 tracking-tight uppercase">
+              Nossa História e Missão
+            </h2>
+            <div class="space-y-4 text-slate-600 leading-relaxed text-sm md:text-base">
+              <p>
+                Bem-vindo à Aluguel de Caçambas VR ({SITE_CONFIG.siteUrl.replace('https://', '')}). Há 15 anos, somos a parceira de confiança para a gestão de resíduos, descarte legalizado e limpeza de obras em toda a região de Volta Redonda - RJ.
+              </p>
+              <p>
+                Nascemos com a missão clara de oferecer um serviço rápido, seguro e totalmente regularizado para o mercado da construção civil, unindo eficiência operacional à máxima responsabilidade socioambiental.
+              </p>
+            </div>
+          </div>
+
+          <!-- Section 2 -->
+          <div class="space-y-6">
+            <h2 class="border-l-4 border-primary pl-4 text-2xl font-black text-slate-900 tracking-tight uppercase">
+              Frota Própria e Agilidade
+            </h2>
+            <div class="space-y-4 text-slate-600 leading-relaxed text-sm md:text-base">
+              <p>
+                O grande diferencial da Aluguel de Caçambas VR é o investimento em infraestrutura. Contamos com uma frota própria de caminhões modernos, o que significa que não dependemos de terceiros para realizar o seu atendimento.
+              </p>
+              <p>
+                Essa autonomia logística nos permite garantir:
+              </p>
+              <ul class="list-disc list-outside pl-6 space-y-2.5 text-slate-600">
+                <li>Pontualidade na entrega e na retirada dos equipamentos.</li>
+                <li>Flexibilidade de horários para não travar o cronograma da sua obra.</li>
+                <li>Capacidade de atendimento em escala, servindo desde pequenas reformas residenciais até as altas demandas de canteiros de grandes constrututoras e indústrias.</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Section 3 -->
+          <div class="space-y-6">
+            <h2 class="border-l-4 border-primary pl-4 text-2xl font-black text-slate-900 tracking-tight uppercase">
+              Equipamentos Sob Medida
+            </h2>
+            <div class="space-y-4 text-slate-600 leading-relaxed text-sm md:text-base">
+              <p>
+                Para atender exatamente à necessidade da sua obra com o melhor custo-benefício, oferecemos uma linha completa, versátil e rigorosamente mantida de caçambas estacionárias e soluções de grande porte:
+              </p>
+              <ul class="list-disc list-outside pl-6 space-y-3.5 text-slate-600">
+                <li><strong>Caçambas de 4m³:</strong> Ideais para pequenas reformas residenciais, troca de pisos, gesso ou limpeza de quintais.</li>
+                <li><strong>Caçambas de 5m³:</strong> O tamanho padrão do mercado, perfeito para reformas médias e demolições pontuais.</li>
+                <li><strong>Caçambas de 7m³:</strong> Excelente para descarte de materiais volumosos ou leves em obras comerciais e industriais.</li>
+                <li><strong>Caçambas Roll-on / Roll-off:</strong> Estruturas gigantes de alta capacidade, voltadas para grandes constrututoras, indústrias e movimentação de grandes volumes de entulho com máxima eficiência de carregamento.</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Section 4 -->
+          <div class="space-y-6">
+            <h2 class="border-l-4 border-primary pl-4 text-2xl font-black text-slate-900 tracking-tight uppercase">
+              Responsabilidade Ambiental e Regularização
+            </h2>
+            <div class="space-y-4 text-slate-600 leading-relaxed text-sm md:text-base">
+              <p>
+                No mercado de gestão de resíduos, a legalidade é a sua maior segurança jurídica. A Aluguel de Caçambas VR é uma empresa 100% homologada pela SMMA (Secretaria Municipal de Meio Ambiente) e totalmente registrada sob as normas vigentes (Licença SMMA L.O. nº {SITE_CONFIG.licenseSMMA.replace('L.O. nº ', '')} e Registro ATT-VR nº {SITE_CONFIG.registerATT.replace('ATT-VR nº ', '')}).
+              </p>
+              <p>
+                Garantimos a emissão de toda a documentação obrigatória, incluindo o MTR (Manifesto de Transporte de Resíduos). Conosco, você tem a certeza absoluta de que o entulho da sua obra terá a destinação final correta em Áreas de Transbordo e Triagem (ATT) autorizadas, protegendo o meio ambiente e evitando multas ou penalidades para o seu projeto.
+              </p>
+            </div>
+          </div>
+
+          <!-- Section 5 -->
+          <div class="space-y-6">
+            <h2 class="border-l-4 border-primary pl-4 text-2xl font-black text-slate-900 tracking-tight uppercase">
+              Informações de Contato
+            </h2>
+            <div class="space-y-4 text-slate-600 leading-relaxed text-sm md:text-base">
+              <p>
+                Garantimos total transparência e canais de comunicação abertos para orçamentos rápidos, propostas corporativas e parcerias comerciais.
+              </p>
+              <ul class="list-disc list-outside pl-6 space-y-2.5 text-slate-600">
+                <li><strong>Site Oficial:</strong> {SITE_CONFIG.siteUrl.replace('https://', '')}</li>
+                <li><strong>E-mail Comercial:</strong> {SITE_CONFIG.email} (Propostas formais, faturamento e parcerias B2B)</li>
+                <li><strong>Telefone & WhatsApp:</strong> {SITE_CONFIG.whatsapp} / {SITE_CONFIG.phone}</li>
+                <li><strong>Endereço Principal:</strong> {SITE_CONFIG.address}</li>
+                <li><strong>Área de Atuação:</strong> Cobertura total em toda a área urbana de Volta Redonda - RJ.</li>
+              </ul>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Right Column: Sidebar (40% width, sticky) -->
+        <div class="lg:col-span-2 lg:sticky lg:top-24 space-y-8">
+          
+          <!-- Truck Fleet Image with overlap experience badge -->
+          <div class="relative">
+            <img 
+              src="/images/frota-caminhoes.png" 
+              alt="Nossa Frota de Caminhões" 
+              class="w-full aspect-[4/3] object-cover rounded-3xl shadow-lg border border-slate-200/60"
+            />
+            <div class="absolute -bottom-6 right-6 bg-primary text-slate-950 px-6 py-4 rounded-2xl shadow-xl flex flex-col items-center justify-center text-center font-black tracking-tight leading-none z-10 select-none border border-yellow-400">
+              <span class="text-3xl font-extrabold">15+</span>
+              <span class="text-[9px] uppercase tracking-wider mt-1 block">Anos de</span>
+              <span class="text-[9px] uppercase tracking-wider block">Experiência</span>
+            </div>
+          </div>
+
+          <!-- Operation Highlights Card -->
+          <div class="bg-slate-50 border border-slate-200/60 p-8 rounded-3xl shadow-sm space-y-6 pt-10">
+            <h3 class="text-xs font-bold text-gray-500 uppercase tracking-wider">
+              Destaques da Operação
+            </h3>
+            
+            <ul class="space-y-4 text-sm font-semibold text-slate-700">
+              <li class="flex items-center gap-3">
+                <span class="bg-primary/20 text-secondary w-5 h-5 rounded-full flex items-center justify-center text-[10px] font-black">✔</span>
+                <span>100% Frota Própria</span>
+              </li>
+              <li class="flex items-center gap-3">
+                <span class="bg-primary/20 text-secondary w-5 h-5 rounded-full flex items-center justify-center text-[10px] font-black">✔</span>
+                <span>Modelos de 4m³ a 7m³</span>
+              </li>
+              <li class="flex items-center gap-3">
+                <span class="bg-primary/20 text-secondary w-5 h-5 rounded-full flex items-center justify-center text-[10px] font-black">✔</span>
+                <span>Caçambas Roll-on / Roll-off</span>
+              </li>
+              <li class="flex items-center gap-3">
+                <span class="bg-primary/20 text-secondary w-5 h-5 rounded-full flex items-center justify-center text-[10px] font-black">✔</span>
+                <span>Homologado pela SMMA</span>
+              </li>
+              <li class="flex items-center gap-3">
+                <span class="bg-primary/20 text-secondary w-5 h-5 rounded-full flex items-center justify-center text-[10px] font-black">✔</span>
+                <span>Emissão Oficial de MTR</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Direct CTA Button -->
+          <a 
+            href={SITE_CONFIG.whatsappUrl} 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            class="bg-primary hover:bg-yellow-500 text-slate-950 font-black py-4 px-6 rounded-xl flex items-center justify-center gap-2 transition-all hover:scale-[1.03] active:scale-[0.97] text-sm shadow-lg shadow-primary/20 w-full"
+          >
+            Fale com Nossa Equipe
+          </a>
+
+        </div>
+
+      </div>
+    </div>
+  </section>
+</Layout>
