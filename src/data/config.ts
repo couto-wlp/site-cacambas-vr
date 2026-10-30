@@ -1,5 +1,5 @@
 export const SITE_CONFIG = {
-  siteUrl: 'https://cacambasvoltaredonda.com.br',
+  siteUrl: 'https://www.diskcacambasvr.com.br',
   name: 'Caçambas VR',
   legalName: 'Caçambas VR LTDA',
   phone: '(21) 97959-8759',

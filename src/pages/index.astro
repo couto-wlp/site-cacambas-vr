@@ -4,253 +4,191 @@ import { getCollection, type CollectionEntry } from 'astro:content';
 import { SITE_CONFIG } from '../data/config';
 
 const servicos: CollectionEntry<'servicos'>[] = await getCollection('servicos');
-// Take up to 9 services for the homepage showcase
-const showcaseServicos = servicos.slice(0, 9);
+const showcaseServicos = servicos.slice(0, 6);
+
+const depoimentos = [
+  {
+    texto: 'Precisava de uma caçamba urgente para uma reforma no meu comércio no Aterrado. A entrega e a retirada foram pontuais e o motorista estacionou sem atrapalhar a rua.',
+    nome: 'Carlos Eduardo',
+    contexto: 'Comerciante do Aterrado',
+    imagem: '/images/carlos.jpg',
+  },
+  {
+    texto: 'Aluguei para retirar galhos, folhas e telhas quebradas do quintal. Fui muito bem atendida pelo WhatsApp e recolheram tudo no dia combinado.',
+    nome: 'Sônia Regina',
+    contexto: 'Moradora do bairro Água Limpa',
+    imagem: '/images/sonia.jpg',
+  },
+  {
+    texto: 'Trabalho com reformas e a pontualidade na troca das caçambas é fundamental. A equipe também fornece o comprovante de descarte legalizado que os condomínios exigem.',
+    nome: 'Roberto Figueiredo',
+    contexto: 'Profissional de obras na Vila Santa Cecília',
+    imagem: '/images/roberto.jpg',
+  },
+];
+
+const diferenciais = [
+  { icone: '⚡', titulo: 'Agendamento rápido', texto: 'Atendimento direto pelo WhatsApp para combinar entrega, troca e retirada.' },
+  { icone: '✓', titulo: 'Operação regularizada', texto: 'Caçambas adequadas e destinação responsável dos resíduos da sua obra.' },
+  { icone: '↗', titulo: 'Atendimento em Volta Redonda', texto: 'Logística local para residências, comércios, condomínios e canteiros de obras.' },
+  { icone: 'R$', titulo: 'Orçamento sem compromisso', texto: 'Condições claras de acordo com o volume, o endereço e o período de locação.' },
+];
 ---
 
-<Layout title={`Aluguel de Caçamba Volta Redonda | ${SITE_CONFIG.name}`} description={`Aluguel de caçamba em Volta Redonda. Caçambas licenciadas, entrega rápida e descarte ecológico de entulho. Solicite seu orçamento com a ${SITE_CONFIG.name}!`}>
-  <!-- Hero Section -->
-  <section class="bg-gradient-to-b from-slate-100 via-slate-50 to-white border-b border-slate-200/60 !pt-10 md:!pt-16">
+<Layout
+  transparentHeader={true}
+  title="Disk Caçamba para Entulho em Volta Redonda | DiskCaçamba"
+  description="Reserve sua caçamba para obra em Volta Redonda com atendimento ágil, entrega programada e retirada responsável de entulho. Solicite seu orçamento pelo WhatsApp."
+>
+  <section class="overflow-hidden border-b border-slate-200/60 bg-slate-50 !pt-24 pb-16 md:!pt-32 md:pb-24">
     <div>
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-        <!-- Text Content -->
-        <div class="max-w-2xl">
-          <span class="inline-block bg-primary/20 border border-primary/40 text-secondary font-extrabold px-4 py-1.5 rounded-full text-xs uppercase tracking-wider mb-6">
-            Líder em Caçambas em Volta Redonda
+      <div class="grid grid-cols-1 items-center gap-12 lg:grid-cols-2">
+        <div class="z-10 flex flex-col items-start text-left">
+          <span class="mb-6 inline-flex rounded-full border border-green-700/20 bg-green-50 px-5 py-2 text-sm font-extrabold uppercase tracking-wider text-green-800">
+            Atendimento local para obras e reformas
           </span>
-          <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-gray-900 tracking-tighter leading-tight mb-6">
-            Aluguel de Caçamba em <span class="text-secondary">Volta Redonda</span>
+          <h1 class="mb-6 text-4xl font-black leading-[1.08] tracking-tighter text-gray-950 sm:text-5xl md:text-6xl">
+            Disk Caçamba para Entulho em <span class="text-green-700">Volta Redonda</span>
           </h1>
-          <p class="text-base md:text-lg text-gray-600 leading-relaxed mb-8">
-            Faça um orçamento grátis e super rápido pelo WhatsApp! Clique no botão e fale com a gente agora mesmo.
+          <p class="mb-8 max-w-xl text-lg leading-relaxed text-gray-600 md:text-xl">
+            Precisa liberar espaço na obra? Agende uma caçamba pelo WhatsApp e combine a entrega e a retirada no endereço desejado.
           </p>
-          <div class="flex flex-wrap gap-4">
-            <a href={SITE_CONFIG.whatsappUrl} target="_blank" rel="noopener noreferrer" class="bg-secondary hover:bg-secondary/95 text-white font-bold px-8 py-4 rounded-xl transition-all duration-200 shadow-lg shadow-secondary/15 hover:scale-105 active:scale-95 text-center text-base">
-              Orçamento no WhatsApp
+          <div class="flex w-full flex-wrap gap-4 sm:w-auto">
+            <a href={SITE_CONFIG.whatsappUrl} target="_blank" rel="noopener noreferrer" class="w-full rounded-xl bg-green-700 px-8 py-4 text-center text-lg font-black text-white shadow-xl shadow-green-700/20 transition hover:-translate-y-0.5 hover:bg-green-600 sm:w-auto">
+              Solicitar orçamento
             </a>
-            <a href="/servicos" class="border border-slate-300 hover:border-slate-400 bg-white hover:bg-slate-50 text-gray-900 font-bold px-8 py-4 rounded-xl transition-all duration-200 hover:scale-105 active:scale-95 text-center text-base">
-              Ver Serviços
+            <a href="/servicos" class="w-full rounded-xl border border-slate-300 bg-white px-8 py-4 text-center text-lg font-bold text-gray-900 shadow-sm transition hover:border-green-700 hover:text-green-800 sm:w-auto">
+              Escolher caçamba
             </a>
           </div>
         </div>
-        
-        <!-- Image Content -->
-        <div class="relative w-full h-full flex justify-center items-center">
-          <!-- Deep dark shadow behind the image -->
-          <div class="absolute inset-0 bg-slate-950/60 rounded-3xl filter blur-xl transform scale-[0.93] translate-y-6 -z-10"></div>
-          <img src="/images/hero-cacamba.jpg" alt="Caçamba Estacionária em Volta Redonda" class="relative rounded-3xl shadow-2xl border border-slate-200/60 w-full object-cover object-bottom aspect-[4/3] hover:scale-105 transition-all duration-300 shadow-secondary/15" />
+        <div class="relative mx-auto aspect-[4/3.5] w-full max-w-lg overflow-hidden rounded-[2rem] shadow-2xl">
+          <img src="/images/hero-cacamba.jpg" alt="Caçamba para retirada de entulho de obra em Volta Redonda" class="h-full w-full object-cover object-center transition duration-700 hover:scale-105" />
         </div>
       </div>
     </div>
   </section>
 
-  <section class="bg-white border-b border-slate-100 !pt-10 md:!pt-16">
+  <!-- Depoimentos aparecem imediatamente após a Hero para alterar a hierarquia da página. -->
+  <section class="border-b border-slate-800 bg-slate-950 text-white">
     <div>
-      <div class="text-center max-w-3xl mx-auto mb-16">
-        <span class="text-xs font-bold uppercase tracking-wider text-secondary bg-secondary/5 px-3 py-1 rounded inline-block mb-2">
-          POR QUE ESCOLHER A CAÇAMBAS VR
-        </span>
-        <h2 class="text-2xl md:text-4xl font-black text-gray-900 tracking-tighter uppercase">
-          VANTAGEM QUE ENTREGAMOS
-        </h2>
+      <div class="mb-12 max-w-2xl">
+        <span class="mb-3 block text-sm font-bold uppercase tracking-[0.2em] text-lime-300">Experiências reais</span>
+        <h2 class="text-3xl font-black tracking-tight md:text-5xl">Quem reforma recomenda</h2>
       </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
-        <!-- Card 1 -->
-        <div class="bg-slate-50 border-2 border-slate-200 p-10 rounded-2xl shadow-sm hover:scale-105 hover:shadow-xl hover:shadow-primary/5 active:scale-[0.98] transition-all duration-300">
-          <div class="text-3xl mb-6 select-none">
-            ⚡
-          </div>
-          <h3 class="text-xl font-bold text-gray-900 tracking-tight mb-3">Entrega em até 2h</h3>
-          <p class="text-gray-600 text-sm leading-relaxed">
-            Frota própria e logística inteligente para entregar sua caçamba no local em tempo recorde.
-          </p>
-        </div>
-
-        <!-- Card 2 -->
-        <div class="bg-slate-50 border-2 border-slate-200 p-10 rounded-2xl shadow-sm hover:scale-105 hover:shadow-xl hover:shadow-primary/5 active:scale-[0.98] transition-all duration-300">
-          <div class="text-3xl mb-6 select-none">
-            🛡️
-          </div>
-          <h3 class="text-xl font-bold text-gray-900 tracking-tight mb-3">Homologado SMMA</h3>
-          <p class="text-gray-600 text-sm leading-relaxed">
-            Licenciamento oficial completo na prefeitura de Volta Redonda. Garantia de emissão do MTR para sua obra.
-          </p>
-        </div>
-
-        <!-- Card 3 -->
-        <div class="bg-slate-50 border-2 border-slate-200 p-10 rounded-2xl shadow-sm hover:scale-105 hover:shadow-xl hover:shadow-primary/5 active:scale-[0.98] transition-all duration-300">
-          <div class="text-3xl mb-6 select-none">
-            💰
-          </div>
-          <h3 class="text-xl font-bold text-gray-900 tracking-tight mb-3">Melhor Preço VR</h3>
-          <p class="text-gray-600 text-sm leading-relaxed">
-            Orçamentos justos e competitivos. Temos excelentes condições e facilitamos no Pix e cartão de crédito.
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Sobre Nós (Resumo) Section -->
-  <section class="bg-slate-50 border-b border-slate-200/40">
-    <div>
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
-        <!-- Left Column: Image with Overlapping Badge -->
-        <div class="lg:col-span-5 relative">
-          <div class="max-w-md mx-auto">
-            <img src="/images/team-cacamba.jpg" alt="Equipe Caçambas Volta Redonda" class="rounded-3xl shadow-xl w-full object-cover aspect-[4/3] md:aspect-square border border-slate-200/50 hover:scale-105 hover:-translate-y-2 hover:shadow-2xl transition-all duration-300 ease-out cursor-pointer" />
-          </div>
-        </div>
-
-        <!-- Right Column: Text Content -->
-        <div class="lg:col-span-7 space-y-6">
-          <h2 class="text-3xl md:text-5xl font-black text-gray-900 tracking-tighter leading-tight">
-            Especialistas em locação de caçambas
-          </h2>
-          <p class="text-gray-600 leading-relaxed text-sm md:text-base">
-            Há mais de <strong class="font-bold text-gray-900">20 anos</strong>, a Caçambas Volta Redonda é referência em gestão de resíduos e limpeza de obras. Com frota própria e modelos de 4m³, 5m³, 7m³ e Roll-on/Roll-off, garantimos agilidade para pequenas reformas ou grandes construtoras. Somos licenciados pela SMMA e emitimos MTR para o descarte 100% correto.
-          </p>
-          <div class="pt-2">
-            <a href="/sobre" class="bg-secondary hover:bg-secondary/90 text-white font-extrabold px-6 py-3.5 rounded-xl transition-all duration-200 shadow-md hover:scale-105 active:scale-95 inline-block text-sm uppercase tracking-wider">
-              Conheça Nossa História
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Nossos Equipamentos/Caçambas Section -->
-  <section class="bg-white border-b border-slate-100">
-    <div>
-      <div class="text-center max-w-3xl mx-auto mb-16">
-        <span class="text-xs font-bold uppercase tracking-wider text-secondary bg-secondary/5 px-3 py-1 rounded inline-block mb-2">Serviços</span>
-        <h2 class="text-2xl md:text-5xl font-black tracking-tighter leading-tight text-gray-900">
-          Nossos Serviços
-        </h2>
-      </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-        {showcaseServicos.map((servico) => (
-          <div class="bg-slate-50 border-[0.5px] border-slate-200/30 p-4 rounded-2xl flex flex-col justify-between hover:shadow-xl transition-all duration-300">
+      <div class="grid grid-cols-1 gap-6 lg:grid-cols-3">
+        {depoimentos.map((depoimento) => (
+          <article class="flex h-full flex-col justify-between rounded-2xl border border-white/10 bg-white/5 p-7 backdrop-blur-sm">
             <div>
-              {servico.data.image ? (
-                <img src={servico.data.image} alt={servico.data.title} class="w-full aspect-[4/3] object-cover rounded-xl mb-6 shadow-sm border border-slate-200/30" />
-              ) : (
-                <div class="bg-primary/20 w-12 h-12 rounded-xl flex items-center justify-center text-xl mb-6">
-                  {servico.data.icon || "🏗️"}
-                </div>
-              )}
-              <h3 class="text-2xl font-black text-gray-900 tracking-tighter leading-tight mb-3">{servico.data.title}</h3>
-              <p class="text-gray-600 text-sm leading-relaxed mb-6">{servico.data.description}</p>
+              <div class="mb-5 text-lg tracking-widest text-lime-300" aria-label="5 de 5 estrelas">★★★★★</div>
+              <blockquote class="leading-relaxed text-slate-200">“{depoimento.texto}”</blockquote>
             </div>
-            <div>
-              <a href={`/servicos/${servico.slug}`} class="text-secondary font-bold hover:text-secondary/80 transition-all text-sm inline-block">
-                Ver Detalhes do Serviço &rarr;
-              </a>
+            <div class="mt-7 flex items-center gap-3 border-t border-white/10 pt-5">
+              <img src={depoimento.imagem} alt={depoimento.nome} class="h-12 w-12 rounded-full object-cover ring-2 ring-lime-300/60" />
+              <div>
+                <p class="font-bold text-white">{depoimento.nome}</p>
+                <p class="text-sm text-slate-400">{depoimento.contexto}</p>
+              </div>
             </div>
-          </div>
+          </article>
         ))}
       </div>
-
-      <div class="text-center mt-12">
-        <a href="/servicos" class="border border-slate-300 hover:border-slate-400 bg-white hover:bg-slate-50 text-gray-900 font-bold px-6 py-3 rounded-lg transition-all hover:scale-105 active:scale-95 inline-block">
-          Página de Serviços
-        </a>
-      </div>
     </div>
   </section>
 
-  <!-- Depoimentos Section -->
-  <section class="bg-secondary border-b border-slate-700/50 text-white">
+  <section class="border-b border-slate-200 bg-white">
     <div>
-      <div class="text-center max-w-3xl mx-auto mb-16">
-        <span class="text-xs font-bold uppercase tracking-wider text-primary bg-primary/20 border border-primary/30 px-3 py-1 rounded inline-block mb-2">Depoimentos</span>
-        <h2 class="text-2xl md:text-5xl font-black tracking-tighter leading-tight text-white">
-          O que dizem nossos clientes
-        </h2>
-
+      <div class="mb-14 flex flex-col justify-between gap-5 md:flex-row md:items-end">
+        <div class="max-w-2xl">
+          <span class="mb-3 block text-sm font-bold uppercase tracking-[0.2em] text-green-700">Soluções para cada volume</span>
+          <h2 class="text-3xl font-black tracking-tight text-gray-950 md:text-5xl">Caçambas para sua obra</h2>
+        </div>
+        <a href="/servicos" class="font-bold text-green-800 underline decoration-green-300 decoration-2 underline-offset-4">Ver todos os serviços</a>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
-        <!-- Depoimento 1 -->
-        <div class="bg-white border border-slate-200/60 p-10 rounded-2xl shadow-sm space-y-4 hover:scale-105 hover:shadow-xl hover:shadow-secondary/20 active:scale-[0.98] transition-all duration-300">
-          <div class="flex items-center gap-1 text-primary text-2xl">
-            <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
-          </div>
-          <p class="text-gray-600 text-sm italic leading-relaxed">
-            "Precisava de uma caçamba urgente pra uma reforma no meu comércio aqui no Aterrado. Mandei mensagem de manhã e logo depois do almoço o motorista já tinha estacionado certinho, sem atrapalhar a rua. Na hora de buscar, também foram super pontuais. Quebrou um galhão!"
-          </p>
-          <div class="flex items-center gap-3 pt-2">
-            <img src="https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?auto=format&fit=crop&w=150&h=150&q=80" alt="Carlos Eduardo" class="w-10 h-10 rounded-full object-cover border border-slate-200" />
-            <div>
-              <p class="text-base font-bold text-gray-900">Carlos Eduardo</p>
-              <p class="text-sm font-semibold text-secondary">Comerciante do Aterrado</p>
+      <div class="grid grid-cols-1 gap-6 md:grid-cols-2">
+        {showcaseServicos.map((servico) => (
+          <article class="group flex flex-col overflow-hidden rounded-2xl border border-slate-200 bg-slate-50 shadow-sm transition hover:border-green-700/30 hover:shadow-lg sm:flex-row">
+            {servico.data.image && (
+              <img src={servico.data.image} alt={servico.data.title} class="aspect-[16/10] w-full object-cover sm:aspect-auto sm:w-44" />
+            )}
+            <div class="flex flex-1 flex-col justify-between p-6">
+              <div>
+                <h3 class="mb-2 text-xl font-black text-gray-950">{servico.data.title}</h3>
+                <p class="mb-5 text-sm leading-relaxed text-gray-600">{servico.data.description}</p>
+              </div>
+              <a href={`/servicos/${servico.slug}`} class="text-sm font-extrabold text-green-800 transition group-hover:translate-x-1">Consultar detalhes →</a>
             </div>
-          </div>
-        </div>
-
-        <!-- Depoimento 2 -->
-        <div class="bg-white border border-slate-200/60 p-10 rounded-2xl shadow-sm space-y-4 hover:scale-105 hover:shadow-xl hover:shadow-secondary/20 active:scale-[0.98] transition-all duration-300">
-          <div class="flex items-center gap-1 text-primary text-2xl">
-            <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
-          </div>
-          <p class="text-gray-600 text-sm italic leading-relaxed">
-            "Aluguei para tirar os galhos, folhas e umas telhas quebradas do meu quintal aqui na Água Limpa. Fui super bem atendida desde o primeiro contato pelo WhatsApp. O motorista foi muito educado e recolheram rapidinho no dia que combinamos. Muito prático, com certeza vou chamar de novo."
-          </p>
-          <div class="flex items-center gap-3 pt-2">
-            <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=150&h=150&q=80" alt="Sônia Regina" class="w-10 h-10 rounded-full object-cover border border-slate-200" />
-            <div>
-              <p class="text-base font-bold text-gray-900">Sônia Regina</p>
-              <p class="text-sm font-semibold text-secondary">Moradora do Bairro Água Limpa</p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Depoimento 3 -->
-        <div class="bg-white border border-slate-200/60 p-10 rounded-2xl shadow-sm space-y-4 hover:scale-105 hover:shadow-xl hover:shadow-secondary/20 active:scale-[0.98] transition-all duration-300">
-          <div class="flex items-center gap-1 text-primary text-2xl">
-            <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
-          </div>
-          <p class="text-gray-600 text-sm italic leading-relaxed">
-            "Trabalho com reformas e a pontualidade na troca das caçambas é fundamental pra não atrasar o cronograma. O pessoal atende todas as minhas obras, principalmente os apartamentos na Vila Santa Cecília. Além da agilidade, eles têm o comprovante de descarte em aterro legalizado, o que os síndicos sempre cobram."
-          </p>
-          <div class="flex items-center gap-3 pt-2">
-            <img src="https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?auto=format&fit=crop&w=150&h=150&q=80" alt="Roberto Figueiredo" class="w-10 h-10 rounded-full object-cover border border-slate-200" />
-            <div>
-              <p class="text-base font-bold text-gray-900">Roberto Figueiredo</p>
-              <p class="text-sm font-semibold text-secondary">Pedreiro na Vila Santa Cecília</p>
-            </div>
-          </div>
-        </div>
+          </article>
+        ))}
       </div>
     </div>
   </section>
 
-  <!-- Chamada de Contato Section -->
-  <section class="bg-white">
+  <section class="border-b border-slate-200 bg-slate-50">
     <div>
-      <div class="text-center space-y-8 max-w-5xl mx-auto">
-        <!-- Title in text-gray-900 -->
-        <h2 class="text-2xl md:text-5xl font-black tracking-tighter leading-tight text-gray-900">
-          Pronto para alugar sua caçamba?
-        </h2>
-        <!-- Body in text-gray-600 -->
-        <p class="text-base md:text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed">
-          Evite multas e atrasos na sua obra. Entre em contato agora mesmo para agendar a entrega no dia e hora ideais para você.
-        </p>
-        <div class="flex flex-wrap justify-center gap-4 pt-4">
-          <a href={SITE_CONFIG.whatsappUrl} target="_blank" rel="noopener noreferrer" class="bg-secondary hover:bg-secondary/90 text-white font-extrabold px-8 py-4 rounded-xl transition-all duration-200 text-base md:text-lg shadow-md shadow-secondary/15 hover:scale-105 active:scale-95 inline-block">
-            Conversar no WhatsApp
-          </a>
-          <a href={`tel:${SITE_CONFIG.phoneFormatted}`} class="border-2 border-secondary/30 hover:border-secondary text-secondary font-extrabold px-8 py-4 rounded-xl transition-all duration-200 text-base md:text-lg hover:scale-105 active:scale-95 inline-block">
-            Ligar Agora
-          </a>
+      <div class="grid grid-cols-1 items-center gap-12 md:grid-cols-2 md:gap-16">
+        <div>
+          <span class="mb-3 block text-sm font-bold uppercase tracking-[0.2em] text-green-700">Por que chamar a DiskCaçamba</span>
+          <h2 class="mb-8 text-3xl font-black tracking-tight text-gray-950 md:text-5xl">Serviço pensado para não parar sua obra</h2>
+          <div class="flex flex-col gap-6">
+            {diferenciais.map((item) => (
+              <div class="flex gap-4">
+                <span class="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-green-800 text-sm font-black text-white">{item.icone}</span>
+                <div>
+                  <h3 class="mb-1 text-lg font-extrabold text-gray-950">{item.titulo}</h3>
+                  <p class="text-sm leading-relaxed text-gray-600">{item.texto}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+        <div class="relative">
+          <div class="absolute -inset-4 -z-10 rounded-[2.5rem] bg-lime-200/50"></div>
+          <img src="/images/team-cacamba.jpg" alt="Equipe responsável pela entrega e retirada de caçambas" class="aspect-[4/5] w-full rounded-[2rem] object-cover shadow-xl" />
         </div>
       </div>
     </div>
   </section>
 
+  <section class="bg-green-900 text-white">
+    <div>
+      <div class="grid grid-cols-1 items-center gap-8 lg:grid-cols-[1fr_auto]">
+        <div>
+          <h2 class="mb-4 text-3xl font-black tracking-tight md:text-5xl">Tem entulho acumulado na obra?</h2>
+          <p class="max-w-2xl text-lg leading-relaxed text-green-100">Informe o bairro, o tipo de resíduo e o volume aproximado. Nossa equipe orienta sobre a caçamba adequada.</p>
+        </div>
+        <a href={SITE_CONFIG.whatsappUrl} target="_blank" rel="noopener noreferrer" class="rounded-xl bg-lime-300 px-8 py-4 text-center text-lg font-black text-green-950 transition hover:bg-lime-200">Falar com a equipe</a>
+      </div>
+    </div>
+  </section>
 
+  <section class="border-t border-slate-200 bg-white" aria-labelledby="faq-title">
+    <div>
+      <div class="grid grid-cols-1 gap-12 lg:grid-cols-[0.8fr_1.2fr]">
+        <div>
+          <span class="mb-3 block text-sm font-bold uppercase tracking-[0.2em] text-green-700">Tire suas dúvidas</span>
+          <h2 id="faq-title" class="text-3xl font-black tracking-tight text-gray-950 md:text-5xl">Perguntas Frequentes sobre Disk Caçamba</h2>
+        </div>
+        <div class="divide-y divide-slate-200 border-y border-slate-200">
+          <article class="py-6">
+            <h3 class="mb-3 text-xl font-extrabold text-gray-950">Qual o valor do disk caçamba em Volta Redonda?</h3>
+            <p class="leading-relaxed text-gray-600">O preço depende do tamanho da caçamba, do bairro de entrega, do tipo de resíduo e do período de permanência. Envie esses dados pelo WhatsApp para receber um orçamento.</p>
+          </article>
+          <article class="py-6">
+            <h3 class="mb-3 text-xl font-extrabold text-gray-950">Como funciona a retirada de entulho da obra?</h3>
+            <p class="leading-relaxed text-gray-600">A equipe entrega a caçamba no local combinado e programa a retirada após o período contratado. Os resíduos devem respeitar as orientações informadas no atendimento.</p>
+          </article>
+          <article class="py-6">
+            <h3 class="mb-3 text-xl font-extrabold text-gray-950">Quanto tempo a caçamba pode ficar no endereço?</h3>
+            <p class="leading-relaxed text-gray-600">O prazo é definido no orçamento e pode variar conforme a demanda e as regras aplicáveis ao local. Consulte a disponibilidade para a data da sua obra.</p>
+          </article>
+          <article class="py-6">
+            <h3 class="mb-3 text-xl font-extrabold text-gray-950">Quais materiais podem ser colocados na caçamba?</h3>
+            <p class="leading-relaxed text-gray-600">Entulho de construção, concreto, tijolos e outros resíduos de obra podem ser aceitos. Materiais perigosos, hospitalares ou inflamáveis exigem destinação específica e não devem ser misturados.</p>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
 </Layout>
