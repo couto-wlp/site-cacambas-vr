@@ -10,6 +10,7 @@ interface Props {
   image?: string;
   type?: string;
   transparentHeader?: boolean;
+  canonical?: string;
 }
 
 const { 
@@ -17,7 +18,8 @@ const {
   description = "Aluguel de Caçamba em Volta Redonda. Atendimento rápido e caçambas regularizadas.",
   image,
   type,
-  transparentHeader = false
+  transparentHeader = false,
+  canonical
 } = Astro.props;
 ---
 
@@ -30,7 +32,7 @@ const {
     <meta name="generator" content={Astro.generator} />
     
     <!-- SEO Component -->
-    <SEO title={title} description={description} image={image} type={type} />
+    <SEO title={title} description={description} image={image} type={type} canonical={canonical} />
     
     <!-- Schema Markup LocalBusiness -->
     <SchemaLocalBusiness />
